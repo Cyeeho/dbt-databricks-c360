@@ -1,1 +1,5 @@
-Select user_id, sum(amount) from  dbdemos.dbt_c360_bronze_orders group by user_id
+{{
+ config(materialized = 'table', file_format = 'delta')
+}}
+
+Select user_id, sum(amount) from dbdemos.dbt_c360_bronze_orders group by user_id;
